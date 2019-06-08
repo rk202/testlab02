@@ -5,16 +5,6 @@
 
 trigger:
 - master
-
-pool:
-  vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
 stages:
 - stage: Build
   jobs:
@@ -34,6 +24,16 @@ stages:
   - job: Deploy
     steps:
     - script: echo Deploying the code!
+
+pool:
+  vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
 
 - script: 
     npm install

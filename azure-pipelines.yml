@@ -2,6 +2,8 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+pool:
+  vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
 
 trigger:
 - master
@@ -25,8 +27,6 @@ stages:
     steps:
     - script: echo Deploying the code!
 
-pool:
-  vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
 
 steps:
 - task: NodeTool@0
